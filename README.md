@@ -14,10 +14,7 @@ superficie.
 una buena adherencia con gel conductor.
 Conectar los electrodos al amplificador y al sistema DAQ.
 - Seleccionar un músculo a estudiar y calcular la frecuencia de muestreo
-necesaria para realizar la captura de la señal.
-
-![image](https://github.com/user-attachments/assets/b3b2083c-8270-4f60-8ea8-a91acd01e061)
-Asi se captura la señal,  
+necesaria para realizar la captura de la señal. 
 
 2. Adquisición de la Señal EMG:
 • Pedir al sujeto que realice una contracción muscular continua hasta llegar a
@@ -25,7 +22,12 @@ la fatiga.
 • Registrar la señal EMG en tiempo real durante todo el proceso.
  En este laboratorio no se urilizo un modulo de electromiografia sino de electrocardiograma.
 
-3. Filtrado de la Señal:
+Asi se captura la señal electromiografica 
+![image](https://github.com/user-attachments/assets/af1fb33e-a4f8-4625-a96c-c4df25b041e7)
+
+![image](https://github.com/user-attachments/assets/b3b2083c-8270-4f60-8ea8-a91acd01e061)
+
+4. Filtrado de la Señal:
 • Aplicar un filtro pasa altas para eliminar componentes de baja frecuencia
 (ruido asociado a la línea base o al movimiento).
 • Utilizar un filtro pasa bajas para eliminar frecuencias altas no deseadas, como
