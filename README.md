@@ -23,9 +23,11 @@ la fatiga.
  En este laboratorio no se urilizo un modulo de electromiografia sino de electrocardiograma.
 
 Asi se captura la señal electromiografica 
-![image](https://github.com/user-attachments/assets/af1fb33e-a4f8-4625-a96c-c4df25b041e7)
 
 ![image](https://github.com/user-attachments/assets/b3b2083c-8270-4f60-8ea8-a91acd01e061)
+
+![image](https://github.com/user-attachments/assets/c37c5701-ed26-47c8-98dd-d3767c9a96a4)
+
 
 4. Filtrado de la Señal:
 • Aplicar un filtro pasa altas para eliminar componentes de baja frecuencia
