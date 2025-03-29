@@ -17,7 +17,7 @@ Conectar los electrodos al amplificador y al sistema DAQ.
 necesaria para realizar la captura de la señal.
 
 ![image](https://github.com/user-attachments/assets/b3b2083c-8270-4f60-8ea8-a91acd01e061)
-Asi se captura la señal 
+Asi se captura la señal,  
 
 2. Adquisición de la Señal EMG:
 • Pedir al sujeto que realice una contracción muscular continua hasta llegar a
@@ -31,7 +31,12 @@ la fatiga.
 • Utilizar un filtro pasa bajas para eliminar frecuencias altas no deseadas, como
 el ruido electromagnético o de interferencia de alta frecuencia.
 
-![image](https://github.com/user-attachments/assets/7cc7ef20-b33d-4988-8b12-ab3fa58b93e5)
+Se calcula la frecuencia de Nyquist (fs / 2), que es el límite máximo de frecuencia que podemos analizar, Se establecen las frecuencias de corte para el filtro pasa-banda:- lowcut = 20 Hz: elimina componentes de muy baja frecuencia. - highcut = 450 Hz: elimina componentes de muy alta frecuencia, se aumenta la margen para definir la banda de rechazo mejorando la selectividad del filtro, se tienen que definir las frecuencias de paso para eso es wp y ws en terminos de la frecuancia de Nyquist, tambien se indican los dB permitidos en la banda de paso y los atenuados en las variables gpass y gstop. Se usa la funcion buttord() para calcular el orden del filtro Butterworth que cumple con los requisitos de atenuacion, los coeficientes b y a representan el filtro en su forma de función de transferencia. La funcion lfilter() aplica un filtro a la señal voltge produciendo una señal filtrada, y se grafica por ultimo la señal filtrada, mostrando solo los primero cuatro segundos. Se utiliza un frecuencia de corte baje de 20 Hz ya que la actividad de EMG se encuentra principalmente en frecuencias superiores a 20 Hz.Frecuencia de corte alta 450 Hz ya que la actividad EMG por encima de 450 Hz es mínima y contiene principalmente ruido electromagnético y térmico.
+
+![image](https://github.com/user-attachments/assets/f61b5aff-b8b1-453f-a6dd-e0cff2875059)
+
+ 
+
 
 
 
