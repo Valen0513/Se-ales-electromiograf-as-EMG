@@ -22,12 +22,13 @@ la fatiga.
 • Registrar la señal EMG en tiempo real durante todo el proceso.
  En este laboratorio no se urilizo un modulo de electromiografia sino de electrocardiograma.
 
-Asi se captura la señal electromiografica 
+Asi se captura la señal electromiografica, se toman 1000 muestras por segundo, la abquisicion de la señal durara dos minutos, num_samples tomara el total de muestras que se tomaran, se crea una tarea DAQmx para abquirir los datos desde la tarjeta de abquisicion por medio de la libreria, se diseñal un canal analogico llamado DEV2/ao1 que aparece al conectar el DAQ en el programa descargado para medir el voltaje, se capturan datos hasta completar el total de muestras que se tomaran, task.start() inicia la abquisicion de la tarjeta DAQ, se capturan la lista de voltajes capturados en cada instante de tiempo, time_axis es el eje de tiempo creado para la grafica desde cero hasta la duracion, se abre este archivo datos_adquiridos.txt y se escribe cada muestra en el archivo creando una fila de tiempo y otra de voltaje. 
 
 ![image](https://github.com/user-attachments/assets/b3b2083c-8270-4f60-8ea8-a91acd01e061)
 
-![image](https://github.com/user-attachments/assets/c37c5701-ed26-47c8-98dd-d3767c9a96a4)
+Se carga los datos que se tienen en el archivo creado arteriormente, se ignora el encabezado para solo tener los datos, se separan los datos en dos arreglos en tiempo almacena los datos de tiempo y voltaje almacena los datos de voltaje, se coloca la frecuencia de muestreo, se calcula el tiempo total en egundos 120 segundos, la longitud de la señal con len(voltaje), se grafican esos datos ele je x el tiempo y en el eje y el voltaje, el musculo medido fue bíceps braquial. Cantidad de contracciones detectadas: 58. 
 
+ ![image](https://github.com/user-attachments/assets/90fae1e9-dfa7-45bc-a4ef-48e4013061e5)
 
 4. Filtrado de la Señal:
 • Aplicar un filtro pasa altas para eliminar componentes de baja frecuencia
