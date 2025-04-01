@@ -41,6 +41,14 @@ Se calcula la frecuencia de Nyquist (fs / 2), que es el límite máximo de frecu
 
 ![image](https://github.com/user-attachments/assets/f61b5aff-b8b1-453f-a6dd-e0cff2875059)
 
+Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas muestras se superponen entre ventanas consecutivas, la resta entre ambos difine el desplazamiento entre cada ventana, se guarda las señales segmentadas con la ventana aplicada, se almacenan los espectros de frecuencia obtenidas de cada ventana, se calcula las frecuencias correspondientes a las fft de cada ventana y se crea una figura para mostrar los resultados de aplicar la ventana en el dominio del tiempo por medio de una ventana Hamming donde se crea un bucle sobre la señal en intervalos de la resta anteriormente mencionada creando bloques del tamaño de la ventana, se aplica la ventana de Hamming para suavizar los bordes, se guarda la señal ventaneada y se grafica. Se aplica la transformada de Fourier a cada ventana se repite el mismo bucle de ventaneo, calcula la FFT de la señal ventaneada y se grafican los espectros obtenidos por cada ventana, Se selecciona un segmento especifico para analizar 
+se aplico ventana de Hanning, Ecuación de la ventana de Hanning:
+
+ w[n] = 0.5 * (1 - cos(2*pi*n/(N-1))) para n = 0,1,...,N-1
+
+ 
+
+
 ![image](https://github.com/user-attachments/assets/b26d2146-40ce-43c5-9ba4-0086a1f8d46b)
 
 
