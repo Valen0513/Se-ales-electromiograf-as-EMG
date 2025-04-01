@@ -34,7 +34,7 @@ Cantidad de contracciones detectadas: 58.
  ![image](https://github.com/user-attachments/assets/5d887e79-d05c-4d63-9b69-648033ecb50e)
 
 
-4. Filtrado de la Señal:
+3. Filtrado de la Señal:
 • Aplicar un filtro pasa altas para eliminar componentes de baja frecuencia
 (ruido asociado a la línea base o al movimiento).
 • Utilizar un filtro pasa bajas para eliminar frecuencias altas no deseadas, como
@@ -46,12 +46,14 @@ Se calcula la frecuencia de Nyquist (fs / 2), que es el límite máximo de frecu
 
 ![image](https://github.com/user-attachments/assets/aa0386d5-f0f3-49fe-88e5-87f0a57a2ebb)
 
-
+4. Aventanamiento:
 Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas muestras se superponen entre ventanas consecutivas, la resta entre ambos difine el desplazamiento entre cada ventana, se guarda las señales segmentadas con la ventana aplicada, se almacenan los espectros de frecuencia obtenidas de cada ventana, se calcula las frecuencias correspondientes a las fft de cada ventana y se crea una figura para mostrar los resultados de aplicar la ventana en el dominio del tiempo por medio de una ventana Hamming ya que esta ayuda a minimizar las discontinuidades entre ventanas consecutivas y mejora la representación espectral global, tiene un mejor control del lóbulo principal y lóbulos secundarios más atenuados en comparación con otras ventanas. Donde se crea un bucle sobre la señal en intervalos de la resta anteriormente mencionada creando bloques del tamaño de la ventana, se aplica la ventana de Hamming para suavizar los bordes, se guarda la señal ventaneada y se grafica. Se aplica la transformada de Fourier a cada ventana se repite el mismo bucle de ventaneo, calcula la FFT de la señal ventaneada y se grafican los espectros obtenidos por cada ventana, Se selecciona un segmento especifico para analizar donde se define un intervalo de tiempo de analisis que fue de 60 a 63 segundo donde se veia una fatiga, se convierte el tiempo en muestras, se encuentra el punto final en muestras, se aplica la ventana de Hanning en este caso ya que proporciona una mayor supresión de lóbulos laterales, lo que es útil cuando se analiza un solo segmento y se quiere minimizar la interferencia de otras frecuencias., la ecuación de la ventana de Hanning:
 
  w[n] = 0.5 * (1 - cos(2*pi*n/(N-1))) para n = 0,1,...,N-1
 
  Para esta ventana se extrae el segmento deseado, se crea una ventana de Hanning, aplica la ventana al segmento y se grafica el segmento ventaneado, se aplica la transfromada de Fourier al segmento ventaneado, se calcula la FFT, se obtiene la magnitud de la FFT, se grafica el espectro de frecuencia. 
+
+ La comparación entre la señal original y la señal segmentada en ventanas muestra cómo el procesamiento de la señal transforma su representación en el dominio del tiempo. La señal original se observa de manera continua, con sus variaciones de amplitud y frecuencia a lo largo del tiempo, sin modificaciones. la señal con aventanamiento ha sido dividida en segmentos superpuestos mediante ventanas de Hamming, lo que permite analizarla por partes sin generar discontinuidades abruptas. Esta segmentación es esencial para estudios en el dominio de la frecuencia, como la transformada de Fourier por ventana, ya que ayuda a capturar cambios locales en la señal sin introducir efectos indeseados en los bordes. Aunque la forma general de la señal se mantiene, la visualización segmentada resalta la aplicación de la técnica de ventaneo, mostrando cada fragmento como una unidad independiente lista para su análisis espectral.
  
 ![image](https://github.com/user-attachments/assets/b26d2146-40ce-43c5-9ba4-0086a1f8d46b)
 
@@ -59,13 +61,36 @@ Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas
 
 ![image](https://github.com/user-attachments/assets/141b5275-4e11-4e8f-be44-230ca51789a8)
 
-![image](https://github.com/user-attachments/assets/34346a35-e8c4-49ba-ab80-f1f7c72b93b3)
-
 ![image](https://github.com/user-attachments/assets/9e15b4e8-9ed0-491a-9320-441621e51789)
 
-![image](https://github.com/user-attachments/assets/ebeea98f-c462-4cca-9f48-405218071911)
-
 ![image](https://github.com/user-attachments/assets/ac001e4b-8f2d-4a1b-80c9-c419885ee653)
+
+5. Analisis espectral:
+
+Se genera un arreglo con los tiempos correspondientes a cada ventana de analisis, se inicializa una lista para almacenar la recuencia mediana de cada ventana, se recorre la señal en intervalos de pasos, extrayendo una ventana de tamaño tamaño_ventana, a la ventana se le aplica la ventana de Hamming para reducir efectos de discontinuidad en el análisis de frecuencia, se aplica la transformada de Fourier rapida y se obtienen el espectro de frecuencias en valores absolutos, se calcula la frecuencia mediana que es el punto donde la mitad de la energía espectral está contenida en frecuencias menores y la otra mitad en frecuencias mayores, se obtiene el índice de la frecuencia mediana y se guarda su valor, se alamcena la frecuancia mediana en la lista. Se grafica la evolucion de la frecuancia mediana a lo largo del tiempo. 
+
+![image](https://github.com/user-attachments/assets/09e695fd-9c83-4e9e-b354-1ddab4f6fa05)
+
+![image](https://github.com/user-attachments/assets/0879f649-081e-4421-9f1f-a8e9adb03fee)
+
+Se extraen los valores los valores de la primera y ultima ventana, se crean 10 muestras aleatorias con una media igual a primera y segunda muestra respectivamente y desviacion estandar de 5 Hz, se calcula media, varianza y desviacion estandar de ambas muestras, se calcula el estadistico t que mide la diferencia en tre las dos medias normalizadas y su variabilidad, se calcula el p valor que indica la probabilidad de que las diferencias entre medias sean debidas al azar, se imprimen los resultados estadisticos: 
+
+Prueba de Hipótesis: t=nan, p=nan
+
+Media 1: 9.78, Media 2: 6.80
+
+Varianza 1: 9.73, Varianza 2: 16.10
+
+Desviación 1: 3.12, Desviación 2: 4.01
+
+t = 1.86, p-valor = 0.0636
+
+![image](https://github.com/user-attachments/assets/44aee9f8-d5ca-46ef-91f7-dddb426d53f7)
+
+![image](https://github.com/user-attachments/assets/97150675-1ad7-45c8-990f-5a91895fcaed)
+
+
+
 
 
 
