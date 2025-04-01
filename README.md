@@ -31,6 +31,9 @@ Cantidad de contracciones detectadas: 58.
 
  ![image](https://github.com/user-attachments/assets/90fae1e9-dfa7-45bc-a4ef-48e4013061e5)
 
+ ![image](https://github.com/user-attachments/assets/5d887e79-d05c-4d63-9b69-648033ecb50e)
+
+
 4. Filtrado de la Señal:
 • Aplicar un filtro pasa altas para eliminar componentes de baja frecuencia
 (ruido asociado a la línea base o al movimiento).
@@ -41,15 +44,33 @@ Se calcula la frecuencia de Nyquist (fs / 2), que es el límite máximo de frecu
 
 ![image](https://github.com/user-attachments/assets/f61b5aff-b8b1-453f-a6dd-e0cff2875059)
 
-Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas muestras se superponen entre ventanas consecutivas, la resta entre ambos difine el desplazamiento entre cada ventana, se guarda las señales segmentadas con la ventana aplicada, se almacenan los espectros de frecuencia obtenidas de cada ventana, se calcula las frecuencias correspondientes a las fft de cada ventana y se crea una figura para mostrar los resultados de aplicar la ventana en el dominio del tiempo por medio de una ventana Hamming donde se crea un bucle sobre la señal en intervalos de la resta anteriormente mencionada creando bloques del tamaño de la ventana, se aplica la ventana de Hamming para suavizar los bordes, se guarda la señal ventaneada y se grafica. Se aplica la transformada de Fourier a cada ventana se repite el mismo bucle de ventaneo, calcula la FFT de la señal ventaneada y se grafican los espectros obtenidos por cada ventana, Se selecciona un segmento especifico para analizar 
-se aplico ventana de Hanning, Ecuación de la ventana de Hanning:
+![image](https://github.com/user-attachments/assets/aa0386d5-f0f3-49fe-88e5-87f0a57a2ebb)
+
+
+Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas muestras se superponen entre ventanas consecutivas, la resta entre ambos difine el desplazamiento entre cada ventana, se guarda las señales segmentadas con la ventana aplicada, se almacenan los espectros de frecuencia obtenidas de cada ventana, se calcula las frecuencias correspondientes a las fft de cada ventana y se crea una figura para mostrar los resultados de aplicar la ventana en el dominio del tiempo por medio de una ventana Hamming ya que esta ayuda a minimizar las discontinuidades entre ventanas consecutivas y mejora la representación espectral global, tiene un mejor control del lóbulo principal y lóbulos secundarios más atenuados en comparación con otras ventanas. Donde se crea un bucle sobre la señal en intervalos de la resta anteriormente mencionada creando bloques del tamaño de la ventana, se aplica la ventana de Hamming para suavizar los bordes, se guarda la señal ventaneada y se grafica. Se aplica la transformada de Fourier a cada ventana se repite el mismo bucle de ventaneo, calcula la FFT de la señal ventaneada y se grafican los espectros obtenidos por cada ventana, Se selecciona un segmento especifico para analizar donde se define un intervalo de tiempo de analisis que fue de 60 a 63 segundo donde se veia una fatiga, se convierte el tiempo en muestras, se encuentra el punto final en muestras, se aplica la ventana de Hanning en este caso ya que proporciona una mayor supresión de lóbulos laterales, lo que es útil cuando se analiza un solo segmento y se quiere minimizar la interferencia de otras frecuencias., la ecuación de la ventana de Hanning:
 
  w[n] = 0.5 * (1 - cos(2*pi*n/(N-1))) para n = 0,1,...,N-1
 
+ Para esta ventana se extrae el segmento deseado, se crea una ventana de Hanning, aplica la ventana al segmento y se grafica el segmento ventaneado, se aplica la transfromada de Fourier al segmento ventaneado, se calcula la FFT, se obtiene la magnitud de la FFT, se grafica el espectro de frecuencia. 
  
-
-
 ![image](https://github.com/user-attachments/assets/b26d2146-40ce-43c5-9ba4-0086a1f8d46b)
+
+![image](https://github.com/user-attachments/assets/2ab7cc85-ada5-42a6-a522-d4e49dfba827)
+
+![image](https://github.com/user-attachments/assets/141b5275-4e11-4e8f-be44-230ca51789a8)
+
+![image](https://github.com/user-attachments/assets/34346a35-e8c4-49ba-ab80-f1f7c72b93b3)
+
+![image](https://github.com/user-attachments/assets/9e15b4e8-9ed0-491a-9320-441621e51789)
+
+![image](https://github.com/user-attachments/assets/ebeea98f-c462-4cca-9f48-405218071911)
+
+![image](https://github.com/user-attachments/assets/ac001e4b-8f2d-4a1b-80c9-c419885ee653)
+
+
+
+
+
 
 
  
