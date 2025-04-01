@@ -50,7 +50,7 @@ Se calcula la frecuencia de Nyquist (fs / 2), que es el límite máximo de frecu
 Define el tamaño de cada ventana, segmento de la señal, tambien indica cuantas muestras se superponen entre ventanas consecutivas, la resta entre ambos difine el desplazamiento entre cada ventana, se guarda las señales segmentadas con la ventana aplicada, se almacenan los espectros de frecuencia obtenidas de cada ventana, se calcula las frecuencias correspondientes a las fft de cada ventana y se crea una figura para mostrar los resultados de aplicar la ventana en el dominio del tiempo por medio de una ventana Hamming:
 Ecuacion:
 
-w(n)=0.54−0.46cos(12πn/(N-1)),0≤n≤N−1
+w[n]=0.54−0.46cos(12πn/(N-1)),0≤n≤N−1
 
 donde:
 w(n) es el valor de la ventana en la muestra 
