@@ -85,6 +85,8 @@ Desviación 1: 3.12, Desviación 2: 4.01
 
 t = 1.86, p-valor = 0.0636
 
+Se establece un nivel de significancia del 5%, si p valor es menor a 0.05 significa que la diferencia entre las frecuencias medianas es estadísticamente significativa. En este caso, se detecta una posible fatiga muscular, si el p-valor es mayor o igual a 0.05, no hay suficiente evidencia para afirmar que la diferencia entre las ventanas sea real, por lo que no se confirma fatiga. Se genera un conjunto de 100 valores en el rango de [-5,5] para el eje x, se calcula la función de densidad de probabilidad de una distribución normal estándar, y con esto se crea el grafico. 
+
 ![image](https://github.com/user-attachments/assets/44aee9f8-d5ca-46ef-91f7-dddb426d53f7)
 
 ![image](https://github.com/user-attachments/assets/97150675-1ad7-45c8-990f-5a91895fcaed)
